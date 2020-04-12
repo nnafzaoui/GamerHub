@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    height: 100vh;
+}
+#nav{
+    box-shadow: 0 5px 10px #efefef;
+}
+.logo{
+    height: 60px;
+    padding: 2px 10px;
+}
+.navbar-nav {
+    display: inline-block;
+}
+.navbar-nav>li {
+     display: inline-block;
+}
