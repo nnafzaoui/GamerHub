@@ -53,3 +53,15 @@ footer .input-group.input-group-text{
 #arrow{
     color: black;
 }
+.product {
+    max-width: 650px;
+    padding: 20px;
+    margin: 30px auto;
+    background-color: #FFF;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+.NEPP{
+    font-size: 18px;
+    color: rgb(37, 37, 37);
+}
