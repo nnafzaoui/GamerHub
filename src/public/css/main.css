@@ -55,7 +55,7 @@ footer .input-group.input-group-text{
     max-width: 1650px;
     padding: 20px;
     margin: 30px auto;
-    background-color: #FFF;
+    background-color: #343a40;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
   }
@@ -87,7 +87,7 @@ footer .input-group.input-group-text{
 .blank{
     margin-top: 40px;
 }
-.name{
+.name, .price{
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     position: relative;

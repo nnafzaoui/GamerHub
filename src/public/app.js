@@ -1,87 +1,4 @@
-// $(function (){
-//     $('#getProducts').on('click',  () => {
-//         $.ajax({
-//             url: 'products',
-//             success: function (products) {
-//                 let tbody = $('tbody');
-//                 tbody.html = ('');
-//                 products.forEach(product => {
-//                     tbody.append(`
-//                     <tr>
-//                         <td class="FN">${product.FirstName + ' ' + product.LastName}</td>
-//                         <td>${product.Email}</td>
-//                         <td><input type="text" class="PR" value="${product.Product}"/></td>
-//                         <td>${product.ProductType}</td>
-//                         <td>${product.Price}</td>
-//                         <td>
-//                             <button class="update-button">Update</button>
-//                             <button class="delete-button">Delete</button>
-//                         </td>
-//                     </tr>
-//                     `)
-//                 })
-//             }
-//         })
-//     })
 
-//     $('#sellform').on('submit', function (e){
-//         e.preventDefault(); 
-//         let newN = $('#FN');
-//         let newL = $('#LN');
-//         let newE = $('#EM');
-//         let newP = $('#PN');
-//         let newPT = $('#PT');
-//         let newPC = $('#PC');
-
-//         $.ajax({
-//           url: '/products',  
-//           method: 'POST',
-//           data: {
-//               FirstName: newN.val(),
-//               LastName: newL.val(),
-//               Email: newE.val(),
-//               Product: newP.val(),
-//               ProductType: newPT.val(),
-//               Price: newPC.val()
-//           },
-//           success: function (response) {
-//               $('#getProducts').click();
-//           }
-//         })
-//     });
-    
-//     $('table').on('click', '.update-button', function() {
-//         let row = $(this).closest('tr');
-//         let FN = row.find('.FN').text();
-//         let PR = row.find('.PR').val();
-
-//         $.ajax({
-//             url: "/products/" + FN,
-//             method: 'PUT',
-//             data: {
-//                 PR: PR
-//             },
-//             success: function (response) {
-//                $('#getProducts').click();
-//             console.log(response);
-//             }
-//         })
-//     })
-//     $('table').on('click', '.delete-button', function () {
-//         let row = $(this).closest('tr');
-//         let PR = row.find('.PR').text();
-//         let FN = row.find('.FN').text();
-
-//         $.ajax({
-//             url: '/products/' + FN,
-//             method: 'DELETE',
-//             success: function (response) {
-//                 console.log(response);
-//                 $('#getProducts').click();
-//             }
-//         })
-//     })
-// })
 
 $(function () {
 
@@ -102,6 +19,9 @@ $(function () {
                     <input type="text" class="name" value="${product.name}"/>
                   </td>
                   <td>
+                  <input type="number" class="price" value="${product.price}"/>
+                  </td>
+                  <td>
                     <button class="update-button">UPDATE</button>
                     <button class="delete-button">DELETE</button>
                   </td>
@@ -116,15 +36,18 @@ $(function () {
     $('#productForm').on('submit', (e) => {
       e.preventDefault();
       let newProduct = $('#newProduct');
+      let newPrice = $('#newPrice');
   
       $.ajax({
         url: URI,
         method: 'POST',
         data: {
-          name: newProduct.val()
+          name: newProduct.val(),
+          price: newPrice.val()
         },
         success: function(response) {
          newProduct.val('');
+         newPrice.val('');
          $('#getProducts').click();
         },
         error: function (err) {
@@ -137,12 +60,13 @@ $(function () {
       let row = $(this).closest('tr');
       let id = row.find('.id').text();
       let name = row.find('.name').val();
-  
+      let price = row.find('.price').val();
       $.ajax({
         url: `${URI}/${id}`,
         method: 'PUT',
         data: {
-          name: name 
+          name: name,
+          price: price
         },
         success: function(response) {
           console.log(response);

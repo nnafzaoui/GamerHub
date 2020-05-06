@@ -10,9 +10,11 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   console.log(req.body);
   const { name } = req.body;
+  const { price } = req.body;
   products.push({
     id: products.length + 1,
-    name
+    name,
+    price
   });
   res.json('Successfully created');
 });
@@ -21,10 +23,12 @@ router.put('/:id', (req, res) => {
   console.log(req.body, req.params)
   const { id } = req.params;
   const { name } = req.body;
+  const { price } = req.body;
 
   products.forEach((product, i) => {
     if (product.id == id) {
       product.name = name;
+      product.price = price;
     }
   });
   res.json('Successfully updated');

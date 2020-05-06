@@ -1,10 +1,12 @@
 [
   {
     "id": 1,
-    "name": "laptop"
+    "name": "Playstation 5",
+    "price": 5000
   },
   {
     "id": 2,
-    "name": "microphone"
+    "name": "Xbox One",
+    "price": 4000
   }
 ]
